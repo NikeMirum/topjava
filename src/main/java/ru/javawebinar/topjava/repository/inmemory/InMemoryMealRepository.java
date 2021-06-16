@@ -22,6 +22,7 @@ public class InMemoryMealRepository implements MealRepository {
 
     {
         MealsUtil.meals.forEach(meal -> save(meal, SecurityUtil.authUserId()));
+        MealsUtil.mealsForOtherUserChecking.forEach(meal -> save(meal, 2));
     }
 
     @Override
