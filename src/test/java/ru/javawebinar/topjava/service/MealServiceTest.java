@@ -64,7 +64,7 @@ public class MealServiceTest {
 
     @Test
     public void getBetweenInclusive() {
-        assertMatch(service.getBetweenInclusive(LocalDate.of(2020, Month.JANUARY, 1),
+        assertMatch(service.getBetweenInclusive(LocalDate.of(2020, Month.JANUARY, 30),
                 LocalDate.of(2020, Month.JANUARY, 30), USER_ID), MEAL_03, MEAL_02, MEAL_01);
     }
 
@@ -93,7 +93,7 @@ public class MealServiceTest {
     public void update() {
         Meal updated = getUpdated();
         service.update(updated, USER_ID);
-        assertMatch(service.get(MEAL_ID, USER_ID), updated);
+        assertMatch(service.get(MEAL_ID, USER_ID), getUpdated());
     }
 
     @Test
