@@ -1,3 +1,6 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/77d4f180d23841788bba695d3abf5b71)](https://www.codacy.com/gh/NikeMirum/topjava/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=NikeMirum/topjava&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.com/NikeMirum/topjava.svg?branch=master)
+
 Java Enterprise Online Project 
 ===============================
 Разработка полнофункционального Spring/JPA Enterprise приложения c авторизацией и правами доступа на основе ролей с использованием наиболее популярных инструментов и технологий Java: Maven, Spring MVC, Security, JPA(Hibernate), REST(Jackson), Bootstrap (css,js), datatables, jQuery + plugins, Java 8 Stream and Time API и хранением в базах данных Postgresql и HSQLDB.
