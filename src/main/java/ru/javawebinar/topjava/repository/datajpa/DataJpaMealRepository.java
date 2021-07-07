@@ -3,7 +3,6 @@ package ru.javawebinar.topjava.repository.datajpa;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.MealRepository;
 
 import java.time.LocalDateTime;
@@ -23,12 +22,10 @@ public class DataJpaMealRepository implements MealRepository {
     @Override
     @Transactional
     public Meal save(Meal meal, int userId) {
-        meal.setUser(crudUserRepository.getById(userId));
-        if (meal.isNew()) {
-            return crudMealRepository.save(meal);
-        } else if (get(meal.id(), userId) == null) {
+        if (!meal.isNew() && get(meal.id(), userId) == null) {
             return null;
         }
+        meal.setUser(crudUserRepository.getById(userId));
         return crudMealRepository.save(meal);
     }
 
@@ -52,6 +49,5 @@ public class DataJpaMealRepository implements MealRepository {
     @Override
     public List<Meal> getBetweenHalfOpen(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
         return crudMealRepository.getBetweenHalfOpen(startDateTime, endDateTime, userId);
-
     }
 }
